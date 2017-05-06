@@ -12,11 +12,11 @@ var connection = mysql.createConnection({
   user: "root",
   password: "",
   database: "cake_db"
-},
-production: {
-    use_env_variable: "JAWSDB_URL",
-    dialect: "mysql"
-  }
+
+  production: {
+      use_env_variable: "JAWSDB_URL",
+      dialect: "mysql"
+    }
 });
 
 // Connect to the database
