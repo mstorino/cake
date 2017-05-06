@@ -5,13 +5,18 @@ var router = express.Router();
 // Import the model (cake.js) to use its database functions.
 var cake = require("../models/cake.js");
 
+var quote = require("../data/cakeQuote.js");
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
+  var oneQuote = quote[Math.floor(Math.random() * quote.length)];
+
   cake.all(function(data) {
     var hbsObject = {
-      cakes: data
+      cakes: data,
+      quote: oneQuote
     };
-    console.log("router working");
+    // console.log("router working");
     res.render("index", hbsObject);
   });
 });
