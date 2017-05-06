@@ -1,0 +1,79 @@
+<div class="row text-center mainContent">
+	
+		<h1>Cake</h1>
+		<h2>"I only came for the cake." – Flo Rida, "Cake"</h2>
+		<!-- <img class="mainImg" src="/assets/img/cakeImg.jpg" alt="Cake"> -->
+
+		<div class = "row cakeAvailability">
+
+			<div class="col-sm-4 leftCol">
+
+				<h3>In Stock</h3>
+
+				<ul>
+				  {{#each cakes}}
+				    {{#unless this.devoured}}
+				      <li>
+				        <h4>{{this.item_name}}</h4>
+
+				        <form action="/{{this.id}}?_method=PUT" method="POST">
+				          <input type="hidden" name="devoured" value="true">
+				          <button type="submit" class="btn btn-default">Order This Cake!</button>
+				        </form>
+
+				      </li>
+				    {{/unless}}
+				  {{/each}}
+				</ul>
+
+			</div><!-- end leftCol -->
+
+
+			<div class="col-sm-4 rightCol">
+
+				<h3>Out of Stock</h3>
+
+				<ul>
+				  {{#each cakes}}
+				    {{#if this.devoured}}
+				      <li>
+				        <h4>{{this.item_name}}</h4>
+
+				        <form action="/{{this.id}}?_method=PUT" method="POST">
+				          <input type="hidden" name="devoured" value="false">
+				          <button type="submit" class="btn btn-default">Bake This Cake!</button>
+				        </form>
+
+				       
+				      </li>
+				    {{/if}}
+				  {{/each}}
+				</ul>
+			
+			</div><!-- end rightCol -->
+		
+			<div class="col-sm-4">
+				<h3>Add a Cake</h3>
+				<form class="create-update-form" action="/" method="POST">
+
+				  <div class="form-group">
+				    <label for="ca">Cake Name:</label>
+				    <input type="text" id="ca" name="name">
+				  </div>
+
+				  <div class="form-group inputBtnBig">
+				    <label for="slee">Do you want to Eat or Bake this cake?</label><br>
+				    <input type="radio" name="devoured" value="1" checked> Eat Cake
+				    <input type="radio" name="devoured" value="0"> Bake Cake
+				  </div>
+
+				  <button type="submit" class="btn btn-default">Add Cake</button>
+				</form>
+
+			</div> <!-- end cakeCreate col-md-4-->
+		</div> <!-- end cakeCreate -->
+
+</div> <!-- end mainContent row -->
+
+
+

@@ -1,5 +1,5 @@
 {
-  "name": "astroblast",
+  "name": "cake",
   "version": "1.0.0",
   "description": "Dynamic log of items built with MySQL, Node, Express, Handlebars, and ORM.",
   "main": "server.js",
